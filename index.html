@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exemplo D3</title>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  </head>
+  <body>
+		<p>
+      Linha 1
+    </p>
+		<p>
+      Linha 1
+    </p>    
+  </body>
+  <script>
+     d3.selectAll("p")
+     .data([10, 25])
+     .style("font-size", function(d) { return d + "px"; })     
+     .style("color", function(d, i) {
+        return i % 2 ? "blue" : "red";
+     });
+
+     d3.select("body")
+     .selectAll("span")
+     .data([4, 8, 15, 16, 23, 42])
+     .enter().append("span")
+     .text(function(d) { return "Sou o número " + d + "!  "; });     
+
+     d3.select("body").transition()
+      .duration(2000)
+      .style("background-color", "yellow");     
+  </script>  
+</html>
